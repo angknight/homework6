@@ -19,13 +19,13 @@ document.querySelector("#pause").addEventListener("click", function() {
 
 document.querySelector("#slower").addEventListener("click", function() {
 	console.log("Slow Video Down");
-	video.playbackRate = video.playbackRate - 0.1;
+	video.playbackRate *= 0.9;
 	console.log("New Video Speed is " + video.playbackRate);
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
 	console.log("Speed Video Up");
-	video.playbackRate = video.playbackRate + 1;
+	video.playbackRate /= 0.9;
 	console.log("New Video Speed is " + video.playbackRate);
 });
 
@@ -52,10 +52,12 @@ document.querySelector("#mute").addEventListener("click", function() {
 
 document.querySelector("#old").addEventListener("click", function() {
 	console.log("Use Exisiting Grayscale Class");
+	video.style.filter = "grayscale(100)";
+
 	
 });
 
 document.querySelector("#original").addEventListener("click", function() {
 	console.log("Remove Grayscale Class");
-	
+	video.style.filter = "grayscale(0)";
 });
