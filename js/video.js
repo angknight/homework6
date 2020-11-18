@@ -45,19 +45,24 @@ document.querySelector("#volumeSlider").addEventListener("click", function() {
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
-	console.log("Mute Video Audio");
-	let vol= document.querySelector("#volume").innerHTML = 0;
-	video.muted = true;
+	if (video.muted ==true){
+		document.querySelector("#mute").innerHTML = "Mute";
+		console.log("Mute Video Audio");
+		video.muted = false
+	}
+	else{
+		document.querySelector("#mute").innerHTML = "Unmute";
+		video.muted = true;
+	}
 });
 
 document.querySelector("#old").addEventListener("click", function() {
 	console.log("Use Exisiting Grayscale Class");
-	video.style.filter = "grayscale(100)";
-
-	
+	video.classList.add("oldTime");
 });
 
 document.querySelector("#original").addEventListener("click", function() {
 	console.log("Remove Grayscale Class");
-	video.style.filter = "grayscale(0)";
+	video.classList.remove("oldTime");
+
 });
